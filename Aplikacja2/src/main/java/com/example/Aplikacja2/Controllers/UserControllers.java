@@ -1,5 +1,6 @@
 package com.example.Aplikacja2.Controllers;
 
+import com.example.Aplikacja2.ParseJson;
 import com.example.Aplikacja2.Services.UserServices;
 import com.example.Aplikacja2.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,8 @@ import java.util.List;
 public class UserControllers {
     @Autowired
     UserServices userServices;
+    @Autowired
+    ParseJson parseJson;
 
     @GetMapping("/users")
     public String getUsers (Model model){
@@ -23,8 +26,8 @@ public class UserControllers {
         return "users";
     }
     @GetMapping("/newuser")
-    public String createuser (Model model){
-        model.addAttribute("user",new User());
+    public String createuser (){
+        userServices.getAllUsers();
        return "newuser";
     }
     @RequestMapping(value = "/users",method = RequestMethod.POST)
