@@ -3,15 +3,17 @@ package com.example.Aplikacja2;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-
+@Component
 public class ParseJson {
-    public static void main(String[] args) throws IOException {
+    public ParseJson() throws IOException {
         File jsonFile = new File("src/main/java/parsejson/jsonExample");
         String content = readFile(jsonFile);
         ObjectMapper objectMapper = new ObjectMapper();

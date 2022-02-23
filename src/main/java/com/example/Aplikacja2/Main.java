@@ -20,6 +20,5 @@ public class Main implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		userRepository.createuser("Max",55,"Sieradz");
-
 	}
 }
